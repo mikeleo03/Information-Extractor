@@ -61,14 +61,17 @@ export default class ExtractionForm extends React.Component {
 
         return (
             <form className="w-full" onSubmit={this.submitHandler}>
-                <div className="flex">
+                <div className="text-md text-center w-full py-4">
+                    Please input the keywords and file to be searched.
+                </div>
+                <div className="flex md:px-10 px-1 py-1">
                     <div className="w-1/3 my-auto">
-                        <label className="block font-bold text-right">Keyword</label>
+                        <label className="block font-bold text-md">Keyword</label>
                     </div>
                     <div className="w-2/3">
                         <input
                             type="text"
-                            className="w-full border-gray-400 border rounded-md p-2 mx-3 text-sm"
+                            className="w-full border-gray-400 border rounded-md p-2 text-sm"
                             placeholder="Input keyword here"
                             name="keyword"
                             value={keyword}
@@ -76,7 +79,7 @@ export default class ExtractionForm extends React.Component {
                         />
                     </div>
                 </div>
-                <div className="flex align-middle justify-center p-5">
+                <div className="flex md:px-10 px-1 py-2">
                     <input
                         directory=""
                         webkitdirectory=""
@@ -84,12 +87,14 @@ export default class ExtractionForm extends React.Component {
                         onChange={(e) => this.handleFolderChosen(e.target.files) && console.log(content)}
                     />
                 </div>
-                <button
-                    className="w-full bg-purple-500 p-2 mx-3 text-white rounded hover:shadow-md hover:bg-purple-400"
-                    type="submit"
-                >
-                    Go!
-                </button>
+                <div className="flex md:px-10 px-1 py-4">
+                    <button
+                        className="w-full bg-purple-500 p-2 text-white rounded hover:shadow-md hover:bg-purple-400"
+                        type="submit"
+                    >
+                        Go!
+                    </button>
+                </div>
             </form>
         );
     }
