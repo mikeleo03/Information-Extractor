@@ -64,13 +64,13 @@ export default class App extends Component {
     render() {
         return (
             <div className="bg-gray-900 min-h-screen">
-                <nav className="flex p-4 shadow-lg sticky top-0 bg-white">
+                <nav className="flex p-4 shadow-lg sticky top-0 z-40">
                     <div className="flex w-full items-center justify-between">
-                        <div className="text-xl font-bold text-purple-600 pl-6">
-                            Information Extractor
+                        <div className="text-xl font-bold text-white pl-6">
+                            Kepoin Yuk!
                         </div>
                         <div
-                            className="text-xl font-bold text-purple-600 hover:bg-purple-600 hover:text-white p-2 px-4 rounded-md mr-4"
+                            className="text-xl font-bold border-2 border-white text-white hover:bg-white hover:text-purple-600 p-2 px-5 rounded-3xl mr-4"
                             onClick={() =>
                                 this.setState({ toggleAbout: !this.state.toggleAbout })
                             }
@@ -79,14 +79,8 @@ export default class App extends Component {
                         </div>
                     </div>
                 </nav>
-                <div className="container mx-auto mt-0 mb-4 p-6">
-                    <div className="flex flex-col md:flex-row w-full mt-0 mb-4 p-6 rounded-2xl
-               text-[#1A2421]
-               backdrop-blur-lg
-               [ p-8 md:p-10 lg:p-10 ]
-               [ bg-gradient-to-b from-white/60 to-white/30 ]
-               [ border-[1px] border-solid border-white border-opacity-30 ]
-               [ shadow-black/70 shadow-2xl">
+                <div className="container mx-auto mb-0 px-10 p-6 z-30">
+                    <div className="flex flex-col md:flex-row w-full mb-0 p-6 text-white">
                         {!this.state.toggleAbout ? (
                             <div className="flex flex-col md:p-6 p-4 items-center justify-center md:w-1/2 w-full">
                                 <div className="pt-0 p-4">

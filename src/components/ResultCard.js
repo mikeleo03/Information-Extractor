@@ -40,7 +40,12 @@ export default class ResultCard extends React.Component {
         }
 
         return (
-        <div className="flex my-6 w-full shadow-lg bg-white rounded-lg">
+        <div className="flex my-6 w-full rounded-lg
+        text-white
+        backdrop-blur-lg
+        [ bg-gradient-to-b from-white/30 to-white/20 ]
+        [ border-[1px] border-solid border-white border-opacity-30 ]
+        [ shadow-black/70 shadow-2xl">
             <div className="flex flex-col p-6 items-center justify-center text-white bg-purple-600 rounded-l-lg">
                 <div className="mx-1 text-2xl font-semibold">Filename: </div>
                 <div className="mx-2">{this.props.filename}</div>
