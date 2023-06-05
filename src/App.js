@@ -1,8 +1,18 @@
 import React, { Component } from "react";
 import axios from "axios";
 // import { ReactComponent as SearchImage } from "./assets/search.svg";
+import backgroundImage from "./assets/background/main-bg-2.avif"
 import ExtractionForm from "./components/ExtractionForm";
 import ResultCard from "./components/ResultCard";
+
+const backgroundStyle = {
+    backgroundImage: `url(${backgroundImage})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+    backgroundAttachment: "fixed",
+    height: "auto",
+}
 
 export default class App extends Component {
     constructor() {
@@ -63,15 +73,15 @@ export default class App extends Component {
 
     render() {
         return (
-            <div className="bg-gray-900 min-h-screen">
+            <div style={backgroundStyle} className="bg-gray-900 min-h-screen">
                 <nav className="flex p-4 shadow-lg sticky top-0 z-40 backdrop-blur-lg">
                     <div className="flex w-full items-center justify-between text-white
         ">
-                        <div className="text-xl font-bold text-white pl-6">
+                        <div className="text-xl font-bold text-white md:pl-6 pl-4">
                             Kepoin Yuk!
                         </div>
                         <div
-                            className="text-xl font-bold border-2 border-white text-white hover:bg-white hover:text-purple-600 p-1 px-5 rounded-3xl mr-4"
+                            className="md:text-xl font-bold border-2 border-white text-white hover:bg-white hover:text-purple-600 p-1 px-5 rounded-3xl mr-4"
                             onClick={() =>
                                 this.setState({ toggleAbout: !this.state.toggleAbout })
                             }
@@ -80,7 +90,7 @@ export default class App extends Component {
                         </div>
                     </div>
                 </nav>
-                <div className="mx-auto mb-0 px-10 p-6 z-30">
+                <div className="mx-auto my-auto md:px-14 px-10 p-6 z-30 justify-center self-auto items-center content-center">
                     <div className="flex flex-col md:flex-row w-full mb-0 md:p-6 text-white">
                         {!this.state.toggleAbout ? (
                             <div className="flex flex-col md:p-6 p-0 items-center justify-center md:w-1/2 w-full">
