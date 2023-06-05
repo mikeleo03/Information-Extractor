@@ -64,13 +64,14 @@ export default class App extends Component {
     render() {
         return (
             <div className="bg-gray-900 min-h-screen">
-                <nav className="flex p-4 shadow-lg sticky top-0 z-40">
-                    <div className="flex w-full items-center justify-between">
+                <nav className="flex p-4 shadow-lg sticky top-0 z-40 backdrop-blur-lg">
+                    <div className="flex w-full items-center justify-between text-white
+        ">
                         <div className="text-xl font-bold text-white pl-6">
                             Kepoin Yuk!
                         </div>
                         <div
-                            className="text-xl font-bold border-2 border-white text-white hover:bg-white hover:text-purple-600 p-2 px-5 rounded-3xl mr-4"
+                            className="text-xl font-bold border-2 border-white text-white hover:bg-white hover:text-purple-600 p-1 px-5 rounded-3xl mr-4"
                             onClick={() =>
                                 this.setState({ toggleAbout: !this.state.toggleAbout })
                             }
@@ -79,10 +80,10 @@ export default class App extends Component {
                         </div>
                     </div>
                 </nav>
-                <div className="container mx-auto mb-0 px-10 p-6 z-30">
-                    <div className="flex flex-col md:flex-row w-full mb-0 p-6 text-white">
+                <div className="mx-auto mb-0 px-10 p-6 z-30">
+                    <div className="flex flex-col md:flex-row w-full mb-0 md:p-6 text-white">
                         {!this.state.toggleAbout ? (
-                            <div className="flex flex-col md:p-6 p-4 items-center justify-center md:w-1/2 w-full">
+                            <div className="flex flex-col md:p-6 p-0 items-center justify-center md:w-1/2 w-full">
                                 <div className="pt-0 p-4">
                                     <img width="200" height="200" src="https://www.poolparty.biz/wp-content/uploads/2015/08/pp_icons_textanalyse.svg" alt="" class="et-waypoint et_pb_animation_top et_pb_animation_top_tablet et_pb_animation_top_phone wp-image-7967 entered lazyloaded et-animated"></img>
                                 </div>
@@ -94,7 +95,7 @@ export default class App extends Component {
                                 </div>
                             </div>
                         ) : (
-                            <div className="flex flex-col md:p-6 p-4 items-center justify-center md:w-1/2 w-full">
+                            <div className="flex flex-col md:p-6 p-0 items-center justify-center md:w-1/2 w-full">
                                 <div className="p-4 w-1/2 h-1/2">
                                 </div>
                                 <div className="font-semibold text-4xl text-center w-full leading-tight my-2">
@@ -108,7 +109,7 @@ export default class App extends Component {
                                 </div>
                             </div>
                         )}
-                        <div className="flex flex-col md:p-5 p-3 items-center justify-center md:w-1/2 w-full">
+                        <div className="flex flex-col md:p-5 p-0 items-center justify-center md:w-1/2 w-full">
                             <ExtractionForm onPost={this.setHasPosted.bind(this)} />
                         </div>
                     </div>

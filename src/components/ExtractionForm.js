@@ -64,7 +64,7 @@ export default class ExtractionForm extends React.Component {
                 <div className="text-md text-center w-full py-4">
                     Please input the keywords and file to be searched.
                 </div>
-                <div className="flex md:px-10 px-1 py-1">
+                <div className="flex md:px-10 py-1">
                     <div className="w-1/3 my-auto">
                         <label className="block font-bold text-md">Keyword</label>
                     </div>
@@ -79,7 +79,7 @@ export default class ExtractionForm extends React.Component {
                         />
                     </div>
                 </div>
-                <div className="flex md:px-10 px-1 py-2">
+                <div className="flex md:px-10 py-2">
                     <input
                         directory=""
                         webkitdirectory=""
@@ -87,7 +87,7 @@ export default class ExtractionForm extends React.Component {
                         onChange={(e) => this.handleFolderChosen(e.target.files) && console.log(content)}
                     />
                 </div>
-                <div className="flex md:px-10 px-1 py-4">
+                <div className="flex md:px-10 py-4">
                     <button
                         className="w-full bg-purple-500 p-2 text-white rounded hover:shadow-md hover:bg-purple-400"
                         type="submit"
