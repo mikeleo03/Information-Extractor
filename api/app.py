@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request, abort
+from flask import Flask, jsonify, request, abort, redirect, render_template, url_for
 from flask_cors import CORS, cross_origin
 import matcher as matcher
 
@@ -24,7 +24,8 @@ def search_keywords():
     global data
     data = {
         'keyword': request.json['keyword'],
-        'data': request.json['data']
+        'data': request.json['data'],
+        'algorithm': request.json['algorithm'],
     }
     print(data)
     return jsonify({'result': data}), 201
@@ -37,14 +38,17 @@ def extract_information():
 
     extraction = {
         'keyword': data['keyword'],
-        'data': []
+        'data': [],
+        'algorithm': data['algorithm'],
     }
 
     for file in data['data']:
         filedata = {}
         filedata['filename'] = file['filename']
 
-        parsed_content = file['content'].split('\r\n')
+        parsed_content = file['content'].split('\n')
+        
+        print(parsed_content)
 
         filedata['title'] = parsed_content[0]
         filedata['date'] = parsed_content[1]
@@ -53,12 +57,22 @@ def extract_information():
         information = []
 
         for sentence in matcher.split_to_sentences(file['content']):
-            sentence_html, sentence_date, sentence_count = matcher.extract_sentence_information(
-                sentence, data['keyword'].lower(), matcher.regex_matching)
+            # Algorirgm choosing
+            if (data['algorithm'] == "Regex"):
+                sentence_html, sentence_date, sentence_count = matcher.extract_sentence_information(
+                    sentence, data['keyword'].lower(), matcher.regex_matching)
+            elif (data['algorithm'] == "KMP"):
+                sentence_html, sentence_date, sentence_count = matcher.extract_sentence_information(
+                    sentence, data['keyword'].lower(), matcher.knuth_morris_pratt)
+            elif (data['algorithm'] == "BM"):
+                sentence_html, sentence_date, sentence_count = matcher.extract_sentence_information(
+                    sentence, data['keyword'].lower(), matcher.boyer_moore)
+                
+            # Output expected
             if(sentence_date == ""):
                 sentence_date = filedata['date']
             if(sentence_count == ""):
-                sentence_count = "-"
+                sentence_count = "Unknown"
             information.append([sentence_html, sentence_date, sentence_count])
 
         filedata['highlightedContent'] = information

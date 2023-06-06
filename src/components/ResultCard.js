@@ -7,8 +7,8 @@ const SentenceComponent = (props) => {
 export default class ResultCard extends React.Component {
     render() {
         const children = [];
-
         let number = 1;
+
         for (let i = 0; i < this.props.highlightedContent.length; i++) {
             if (this.props.highlightedContent[i][0] !== "") {
                 children.push(
@@ -39,6 +39,21 @@ export default class ResultCard extends React.Component {
             }
         }
 
+        if (number === 1) {
+            children.push(
+                <div>Result not found.</div>
+            );
+        }
+
+        let algo = '';
+        if (this.props.algorithm === "KMP") {
+            algo = "Knuth-Morris-Pratt"
+        } else if (this.props.algorithm === "BM") {
+            algo = "Boyers-Moore"
+        } else if (this.props.algorithm === "Regex") {
+            algo = "Regular Expression"
+        }
+
         return (
         <div className="flex flex-col md:flex-row my-6 w-full rounded-lg
         text-white
@@ -52,16 +67,16 @@ export default class ResultCard extends React.Component {
             </div>
             <div className="flex flex-col md:p-6 p-4">
                 <div className="flex items-center flex-row my-2">
-                    <div className="mx-1 text-xl font-semibold">Date : </div>
-                    <div className="mx-2">{this.props.date}</div>
+                    <div className="mx-1 text-xl font-semibold">Algorithm : </div>
+                    <div className="mx-2 text-lg">{algo}</div>
                 </div>
                 <div className="flex items-center flex-row my-2">
                     <div className="mx-1 text-xl font-semibold">Keyword : </div>
-                    <div className="mx-2">{this.props.keyword}</div>
+                    <div className="mx-2 text-lg">{this.props.keyword}</div>
                 </div>
                 <div className="p-1">
                     <div className="my-2 mb-0 text-xl font-semibold">Result :</div>
-                    <div className="md:p-4 p-0">{children}</div>
+                    <div className="md:p-2 p-0">{children}</div>
                 </div>
             </div>
         </div>

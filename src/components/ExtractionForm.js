@@ -5,6 +5,7 @@ export default class ExtractionForm extends React.Component {
     state = {
         keyword: "",
         data: [],
+        algorithm: "",
     };
 
     changeHandler = (event) => {
@@ -61,7 +62,7 @@ export default class ExtractionForm extends React.Component {
 
         return (
             <form className="w-full" onSubmit={this.submitHandler}>
-                <div className="text-md text-center w-full py-4">
+                <div className="text-lg text-center w-full py-4">
                     Please input the keywords and file to be searched.
                 </div>
                 <div className="flex py-1">
@@ -71,7 +72,7 @@ export default class ExtractionForm extends React.Component {
                     <div className="w-2/3">
                         <input
                             type="text"
-                            className="w-full border-gray-400 border rounded-md p-2 text-sm"
+                            className="w-full border-gray-400 border rounded-md p-2 text-sm text-gray-900"
                             placeholder="Input keyword here"
                             name="keyword"
                             value={keyword}
@@ -86,6 +87,21 @@ export default class ExtractionForm extends React.Component {
                         type="file"
                         onChange={(e) => this.handleFolderChosen(e.target.files) && console.log(content)}
                     />
+                </div>
+                <div className="flex flex-col py-2">
+                    <h4 className="font-bold pb-1.5">Select the algorithms</h4>
+                    <div className="px-4">
+                        <input type="radio" id="patternbm" name="matchmethod" value="Booyer-Moore" checked={this.state.algorithm = "BM"}></input>
+                        <label for="patternbm" className="px-3 py-2">Boyers-Moore</label>
+                    </div>
+                    <div className="px-4">
+                        <input type="radio" id="patternkmp" name="matchmethod" value="Knuth-Morris-Pratt" checked={this.state.algorithm = "KMP"}></input>
+                        <label for="patternbm" className="px-3 py-2">Knuth-Morris-Pratt</label>
+                    </div>
+                    <div className="px-4">
+                        <input type="radio" id="regex" name="matchmethod" value="Regular Expression" checked={this.state.algorithm = "Regex"}></input>
+                        <label for="patternbm" className="px-3 py-2">Regular Expression (default)</label>
+                    </div>
                 </div>
                 <div className="flex py-4">
                     <button
