@@ -1,7 +1,7 @@
 {
   "name": "information-extractor",
   "version": "1.0.0",
-  "homepage": "https://gitname.github.io/react-gh-pages",
+  "homepage": "https://mikeleo03.github.io/Information-extractor",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
