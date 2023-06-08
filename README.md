@@ -1,4 +1,4 @@
-# Kepoin Yuk!
+# 🔍 Kepoin Yuk!
 > Front-end side of a simple Information Extractor created using React, Tailwind CSS, and Flask
 
 ## General Information
