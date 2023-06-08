@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 
-const url = REACT_APP_BACKEND_URL;
+const url = process.env.REACT_APP_BACKEND_URL;
 export default class ExtractionForm extends React.Component {
     state = {
         keyword: "",

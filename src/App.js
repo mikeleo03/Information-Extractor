@@ -5,7 +5,7 @@ import ExtractionForm from "./components/ExtractionForm";
 import ResultCard from "./components/ResultCard";
 import search from "./assets/search.png";
 
-const url = REACT_APP_BACKEND_URL;
+const url = process.env.REACT_APP_BACKEND_URL;
 
 const backgroundStyle = {
     backgroundImage: `url(${backgroundImage})`,
