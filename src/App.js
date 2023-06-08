@@ -5,7 +5,7 @@ import ExtractionForm from "./components/ExtractionForm";
 import ResultCard from "./components/ResultCard";
 import search from "./assets/search.png";
 
-const url = process.env.REACT_APP_BACKEND_URL;
+const url = "https://information-extractor-be.up.railway.app";
 
 const backgroundStyle = {
     backgroundImage: `url(${backgroundImage})`,
@@ -28,22 +28,14 @@ export default class App extends Component {
     }
 
     componentDidMount() {
-        axios.get(url + "/api/keyword").then(
-            (e) => {
-                console.log(e);
-            },
-            (e) => {
-                console.log(e);
-            }
-        );
+        axios.get(url + "/api/keyword");
     }
 
     generateResult = async () => {
-        const result = await axios
+        await axios
             .get(url + "/api/extract_information")
             .then((response) => {
                 const results = [];
-                console.log(response);
                 for (let i = 0; i < response.data.result.data.length; i++) {
                     results.push(
                         <ResultCard
@@ -57,13 +49,11 @@ export default class App extends Component {
                         />
                     );
                 }
-                console.log(results);
                 this.result = results;
             })
             .finally(() => {
                 this.setState({ hasFinishedLoading: true });
             });
-        console.log(result);
     };
 
     setHasPosted() {
@@ -104,7 +94,7 @@ export default class App extends Component {
                     <div className="flex flex-col md:flex-row w-full mb-0 md:p-6 text-white">
                         <div className="flex flex-col md:p-6 p-0 items-center justify-center md:w-1/2 w-full">
                             <div className="p-0">
-                                <img src={search} alt="" class="w-auto h-60"></img>
+                                <img src={search} alt="" className="w-auto h-60"></img>
                             </div>
                             <div className="font-semibold text-5xl text-center w-full leading-tight my-2">
                                 Kepoin Yuk!

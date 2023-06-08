@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 
-const url = process.env.REACT_APP_BACKEND_URL;
+const url = "https://information-extractor-be.up.railway.app";
 export default class ExtractionForm extends React.Component {
     state = {
         keyword: "",
@@ -25,7 +25,7 @@ export default class ExtractionForm extends React.Component {
         await axios
             .post(url + "/api/search", formInput)
             .then((resp) => {
-                console.log(resp);
+                // console.log(resp);
             })
             .catch((e) => console.log(e));
 
@@ -35,7 +35,6 @@ export default class ExtractionForm extends React.Component {
     handleFolderChosen = (files) => {
         let data = [];
         Array.from(files).forEach((file) => {
-            console.log(file.name);
             let fileReader = new FileReader();
             fileReader.readAsText(file);
 
@@ -48,7 +47,6 @@ export default class ExtractionForm extends React.Component {
                 data.push(filedata);
             };
         });
-        console.log(data);
         this.setState({ data: data });
     };
 
@@ -86,23 +84,23 @@ export default class ExtractionForm extends React.Component {
                     </div>
                 </div>
                 <div className="py-1">
-                    <label class="block mb-2 text-md font-bold text-gray-900 dark:text-white" for="dropzone-file">Insert file</label>
-                    <input class="block w-full mb-3 text-sm text-gray-400 rounded-lg cursor-pointer bg-gray-900 focus:outline-none py-1" id="dropzone-file" directory="" webkitdirectory="" type="file" onChange={(e) => this.handleFolderChosen(e.target.files) && console.log(content)}></input>
+                    <label className="block mb-2 text-md font-bold text-gray-900 dark:text-white" htmlFor="dropzone-file">Insert file</label>
+                    <input className="block w-full mb-3 text-sm text-gray-400 rounded-lg cursor-pointer bg-gray-900 focus:outline-none py-1" id="dropzone-file" directory="" webkitdirectory="" type="file" onChange={(e) => this.handleFolderChosen(e.target.files) && console.log(content)}></input>
                 </div>
                 <div className="py-1">
                     <h4 className="font-bold">Select the algorithms</h4>
                     <div className="flex flex-col mt-1.5 grid grid-cols-3 space-x-2 rounded-lg bg-gray-800 p-1.5" x-data="app">
                         <div>
-                            <input type="radio" id="patternbm" name="algorithm" value="BM" checked={this.state.algorithm === "BM"} onChange={this.changeHandler} class="peer hidden"></input>
-                            <label for="patternbm" className="text-sm block cursor-pointer select-none rounded-xl p-2 text-center peer-checked:bg-[#2a3786] peer-checked:font-bold peer-checked:text-white h-full flex justify-center items-center">Boyers-Moore</label>
+                            <input type="radio" id="patternbm" name="algorithm" value="BM" checked={this.state.algorithm === "BM"} onChange={this.changeHandler} className="peer hidden"></input>
+                            <label htmlFor="patternbm" className="text-sm block cursor-pointer select-none rounded-xl p-2 text-center peer-checked:bg-[#2a3786] peer-checked:font-bold peer-checked:text-white h-full flex justify-center items-center">Boyers-Moore</label>
                         </div>
                         <div>
-                            <input type="radio" id="patternkmp" name="algorithm" value="KMP" checked={this.state.algorithm === "KMP"} onChange={this.changeHandler} class="peer hidden"></input>
-                            <label for="patternkmp" className="text-sm block cursor-pointer select-none rounded-xl p-2 text-center peer-checked:bg-[#2a3786] peer-checked:font-bold peer-checked:text-white h-full flex justify-center items-center">Knuth-Morris-Pratt</label>
+                            <input type="radio" id="patternkmp" name="algorithm" value="KMP" checked={this.state.algorithm === "KMP"} onChange={this.changeHandler} className="peer hidden"></input>
+                            <label htmlFor="patternkmp" className="text-sm block cursor-pointer select-none rounded-xl p-2 text-center peer-checked:bg-[#2a3786] peer-checked:font-bold peer-checked:text-white h-full flex justify-center items-center">Knuth-Morris-Pratt</label>
                         </div>
                         <div>
-                            <input type="radio" id="regex" name="algorithm" value="Regex" checked={this.state.algorithm === "Regex"} onChange={this.changeHandler} class="peer hidden"></input>
-                            <label for="regex" className="text-sm block cursor-pointer select-none rounded-xl p-2 text-center peer-checked:bg-[#2a3786] peer-checked:font-bold peer-checked:text-white h-full flex justify-center items-center">Regular Expression</label>
+                            <input type="radio" id="regex" name="algorithm" value="Regex" checked={this.state.algorithm === "Regex"} onChange={this.changeHandler} className="peer hidden"></input>
+                            <label htmlFor="regex" className="text-sm block cursor-pointer select-none rounded-xl p-2 text-center peer-checked:bg-[#2a3786] peer-checked:font-bold peer-checked:text-white h-full flex justify-center items-center">Regular Expression</label>
                         </div>
                     </div>
                 </div>
