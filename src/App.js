@@ -5,7 +5,7 @@ import ExtractionForm from "./components/ExtractionForm";
 import ResultCard from "./components/ResultCard";
 import search from "./assets/search.png";
 
-const url = process.env.NODE_ENV === 'production'? process.env.REACT_APP_BACKEND_URL : process.env.REACT_APP_BACKEND_URL_DEV;
+const url = REACT_APP_BACKEND_URL;
 
 const backgroundStyle = {
     backgroundImage: `url(${backgroundImage})`,
@@ -117,7 +117,7 @@ export default class App extends Component {
                             <ExtractionForm onPost={this.setHasPosted.bind(this)} />
                         </div>
                     </div>
-                    <div>{this.state.hasFinishedLoading ? this.result : null}</div>
+                    <div className="w-full">{this.state.hasFinishedLoading ? this.result : null}</div>
                 </div>
             </div>
         );
