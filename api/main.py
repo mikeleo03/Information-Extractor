@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request, abort, redirect, render_template, url_for
+from flask import Flask, jsonify, request, abort
 from flask_cors import CORS, cross_origin
 import matcher as matcher
 

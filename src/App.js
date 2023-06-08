@@ -98,7 +98,7 @@ export default class App extends Component {
                         </div>
                     </div>
                 </nav>
-                <div className="mx-auto my-auto md:px-14 px-8 p-6 z-30 justify-center items-center flex">
+                <div className="mx-auto my-auto md:px-14 px-8 p-6 z-30 justify-center items-center flex flex-col">
                     <div className="flex flex-col md:flex-row w-full mb-0 md:p-6 text-white">
                         <div className="flex flex-col md:p-6 p-0 items-center justify-center md:w-1/2 w-full">
                             <div className="p-0">
