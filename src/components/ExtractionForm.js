@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 
+const url = process.env.NODE_ENV === 'production'? process.env.REACT_APP_BACKEND_URL : process.env.REACT_APP_BACKEND_URL_DEV;
 export default class ExtractionForm extends React.Component {
     state = {
         keyword: "",
@@ -22,7 +23,7 @@ export default class ExtractionForm extends React.Component {
         const formInput = this.state;
 
         await axios
-            .post("http://localhost:5000/api/search", formInput)
+            .post(url + "/api/search", formInput)
             .then((resp) => {
                 console.log(resp);
             })

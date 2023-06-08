@@ -5,6 +5,8 @@ import ExtractionForm from "./components/ExtractionForm";
 import ResultCard from "./components/ResultCard";
 import search from "./assets/search.png";
 
+const url = process.env.NODE_ENV === 'production'? process.env.REACT_APP_BACKEND_URL : process.env.REACT_APP_BACKEND_URL_DEV;
+
 const backgroundStyle = {
     backgroundImage: `url(${backgroundImage})`,
     backgroundSize: "cover",
@@ -26,7 +28,7 @@ export default class App extends Component {
     }
 
     componentDidMount() {
-        axios.get("http://localhost:5000/api/keyword").then(
+        axios.get(url + "/api/keyword").then(
             (e) => {
                 console.log(e);
             },
@@ -38,7 +40,7 @@ export default class App extends Component {
 
     generateResult = async () => {
         const result = await axios
-            .get("http://localhost:5000/api/extract_information")
+            .get(url + "/api/extract_information")
             .then((response) => {
                 const results = [];
                 console.log(response);
