@@ -40,9 +40,9 @@ export default class App extends Component {
                     results.push(
                         <ResultCard
                             key={i}
-                            filename={response.data.result.data[i].filename}
+                            filename={response.data.result.data[i][0]}
                             highlightedContent={
-                                response.data.result.data[i].highlightedContent
+                                response.data.result.data[i][2]
                             }
                             keyword={response.data.result.keyword}
                             algorithm={response.data.result.algorithm}

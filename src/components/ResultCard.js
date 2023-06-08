@@ -21,11 +21,11 @@ export default class ResultCard extends React.Component {
                         <div className="w-full mx-2">
                             <div className="flex flex-row">
                                 <div className="mr-2 font-semibold">Date :</div>
-                                <div>{this.props.highlightedContent[i][1]}</div>
+                                <div>{this.props.highlightedContent[i][2]}</div>
                             </div>
                             <div className="flex flex-row">
                                 <div className="mr-2 font-semibold">Count :</div>
-                                <div>{this.props.highlightedContent[i][2]}</div>
+                                <div>{this.props.highlightedContent[i][1]}</div>
                             </div>
                             <div>
                             <SentenceComponent

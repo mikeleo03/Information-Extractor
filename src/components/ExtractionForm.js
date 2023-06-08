@@ -85,7 +85,7 @@ export default class ExtractionForm extends React.Component {
                 </div>
                 <div className="py-1">
                     <label className="block mb-2 text-md font-bold text-gray-900 dark:text-white" htmlFor="dropzone-file">Insert file</label>
-                    <input className="block w-full mb-3 text-sm text-gray-400 rounded-lg cursor-pointer bg-gray-900 focus:outline-none py-1" id="dropzone-file" directory="" webkitdirectory="" type="file" onChange={(e) => this.handleFolderChosen(e.target.files) && console.log(content)}></input>
+                    <input className="block w-full mb-3 text-sm text-gray-400 rounded-lg cursor-pointer bg-gray-900 focus:outline-none py-1" id="dropzone-file" type="file" multiple onChange={(e) => this.handleFolderChosen(e.target.files) && console.log(content)}></input>
                 </div>
                 <div className="py-1">
                     <h4 className="font-bold">Select the algorithms</h4>
