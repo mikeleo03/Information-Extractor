@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 
 const url = "https://information-extractor-be.up.railway.app";
+
 export default class ExtractionForm extends React.Component {
     state = {
         keyword: "",

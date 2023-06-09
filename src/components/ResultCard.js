@@ -63,7 +63,7 @@ export default class ResultCard extends React.Component {
         [ shadow-black/70 shadow-2xl">
             <div className="flex flex-col md:p-6 p-3.5 items-center justify-center text-white bg-[#aa2071] md:rounded-l-lg rounded-lg">
                 <div className="mx-1 md:text-2xl text-xl font-semibold">Filename</div>
-                <div className="mx-2 text-base">{this.props.filename}</div>
+                <div className="text-base">{this.props.filename}</div>
             </div>
             <div className="flex flex-col md:p-6 p-4">
                 <div className="flex items-center flex-row md:my-2 my-1">
