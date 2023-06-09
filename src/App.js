@@ -23,7 +23,6 @@ export default class App extends Component {
         this.state = {
             hasPosted: false,
             hasFinishedLoading: false,
-            toggleAbout: false,
         };
     }
 
@@ -79,14 +78,11 @@ export default class App extends Component {
                                     Explore
                                 </div>
                             </a>
-                            <div
-                                className="md:text-xl font-bold border-2 border-white text-white hover:bg-white hover:text-[#2a3786] p-1 md:px-5 px-3 rounded-3xl mr-4"
-                                onClick={() =>
-                                    this.setState({ toggleAbout: !this.state.toggleAbout })
-                                }
-                            >
-                                {this.state.toggleAbout ? "Main" : "About"}
-                            </div>
+                            <a href="https://github.com/mikeleo03/Information-extractor/blob/main/README.md" target="_blank" rel="noopener noreferrer">
+                                <div className="md:text-xl font-bold border-2 border-white text-white hover:bg-white hover:text-[#2a3786] p-1 md:px-5 px-3 rounded-3xl mr-4">
+                                    About
+                                </div>
+                            </a>
                         </div>
                     </div>
                 </nav>
