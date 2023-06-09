@@ -27,7 +27,7 @@ export default class ResultCard extends React.Component {
                                 <div className="md:mr-1.5 font-semibold md:basis-auto basis-1/3">Count :</div>
                                 <div className="md:basis-auto basis-2/3">{this.props.highlightedContent[i][1]}</div>
                             </div>
-                            <div>
+                            <div className="my-2">
                             <SentenceComponent
                                 sentence={this.props.highlightedContent[i][0]}
                             />
